@@ -8,16 +8,16 @@ SESSION_CONFIGS = [
        app_sequence=['pre_survey']
     ),
     dict(
-       name='skill_tasks',
-       display_name="Skill Tasks",
-       num_demo_participants=3,
-       app_sequence=['skill_tasks']
-    ),
-    dict(
        name='demographics_survey',
        display_name="Demographics Survey",
        num_demo_participants=3,
        app_sequence=['demographics_survey']
+    ),
+    dict(
+       name='skill_task',
+       display_name="skill_task",
+       num_demo_participants=1,
+       app_sequence=['skill_task']
     ),
 ]
 
