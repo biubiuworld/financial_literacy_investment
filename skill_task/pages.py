@@ -52,7 +52,7 @@ class AssessmentInstruction(Page):
 
 class SkillQuestionPage(Page):
     form_model = 'player'
-    form_fields = ['answer']
+    form_fields = ['answer','confidence']
 
     def answer_choices(self):
         return Constants.skill_question_choices[self.round_number - 1]

@@ -9,7 +9,14 @@
     <p>
         {{ questiontext}}
     </p>
+    <p>
         {% formfield player.answer with label="" %}
+    </p>
+    <p>
+        How Confident Are You About Your Answers
+        <br>
+        {% formfield player.confidence with label="" %}
+     </p>
     {% next_button %}
 
 {% endblock %}

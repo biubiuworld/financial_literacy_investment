@@ -114,5 +114,9 @@ class Player(BasePlayer):
     )
     # Skill_tasks
     answer = models.IntegerField(widget=widgets.RadioSelect())
+    confidence = models.IntegerField(widget = widgets.RadioSelectHorizontal(),
+        choices=
+            [1,2,3,4,5,6,7], 
+            )
 
 
