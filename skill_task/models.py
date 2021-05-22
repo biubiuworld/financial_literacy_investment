@@ -8,7 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
-
+import random
 
 author = 'Your name here'
 
@@ -85,6 +85,8 @@ class Subsession(BaseSubsession):
             player.dna_count = dna_count
 
 
+
+
 class Group(BaseGroup):
     pass
 
@@ -97,7 +99,7 @@ class Player(BasePlayer):
     dna_count = models.IntegerField(initial =0)
     # pre_survey
     age = models.IntegerField(
-        min=14,
+        min=18,
         max=100,
         label="1. How old are you?"
     )
@@ -116,7 +118,15 @@ class Player(BasePlayer):
     answer = models.IntegerField(widget=widgets.RadioSelect())
     confidence = models.IntegerField(widget = widgets.RadioSelectHorizontal(),
         choices=
-            [1,2,3,4,5,6,7], 
+            [1,2,3,4,5,6,7],
             )
+
+
+    # Assign treatments
+    treatment_group = models.IntegerField()
+
+    def creating_treatment(subsession):
+        for player in subsession.get_players():
+            player.treatment_group = random.choice([0, 1, 2])
 
 

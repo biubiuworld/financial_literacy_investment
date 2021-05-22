@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Investment Game Instructions
+{% endblock %}
+
+{% block content %}
+In this stage, you will be asked to allocate your compensation from the previous stages between two accounts,
+Account A and Account B.  Account A will pay you $1 for every $1 that you allocate to it, with probability 1.
+Account B is a risky account.  It will have a chance of paying you $3 for every $1 that you allocate to it,
+but also a chance of paying $0. <br \>
+You will be told the probability of Account B paying $3 per $1 on the computer screen before making your decision.
+There will be a series of these decisions to make with different probabilities of paying $3
+and you can allocate between the accounts differently in each case.
+You should consider each of these decisions carefully as one will be selected at random to determine your final payment. <br \>
+Allocate your endowment between Account A and Account B by placing or dragging the red slider on the bar
+in the center of the screen with the mouse.
+The slider will only appear once you have clicked to place it on the bar.
+Moving the slider closer to the right allocates a greater percentage of your money to Account B,up to 100% at the right-hand end of the bar.
+You can proceed to the next decision or go back with the buttons in the bottom right corner.
+Once you complete all of the decisions, a submit button will appear.
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Investment Game
+{% endblock %}
+
+{% block content %}
+    Please allocate your money between Account A and Account B <br \>
+    For each $1 that you allocate to Account A, you earn: <br \>
+            $1 with probability 1 <br \>
+    For each $1 that you allocate to Account B, you earn: <br \>
+            $3 with probability [...] <br \>
+            $0 with probability [...] <br \>
+{% comment %}Slider here {% endcomment %}
+    For each $1 of you income, you will receive: <br \>
+
+    {% next_button %}
+
+{% endblock %}

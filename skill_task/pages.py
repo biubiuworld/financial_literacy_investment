@@ -82,6 +82,65 @@ class SkillTasksWaitPage(WaitPage):
     def after_all_players_arrive(self):
         pass
 
+class SelfEvaluation(Page):
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+
+class SelfEvaluationWaitPage(WaitPage):
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+
+    def after_all_players_arrive(self):
+        pass
+
+class Control(Page):
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def is_treatment(self):
+        return self.player.treatment_group == 0
+
+class Treatment1(Page):
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def is_treatment(self):
+        return self.player.treatment_group == 1
+
+class Treatment2(Page):
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def is_treatment(self):
+        return self.player.treatment_group == 2
+
+class InvestmentInstruction(Page):
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+
+class InvestmentGame(Page):
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+
+
 class Combinedresults(Page):
     def is_displayed(self):
         if self.round_number == Constants.num_rounds:
@@ -103,4 +162,8 @@ class Combinedresults(Page):
 
 page_sequence = [
     Introduction, Presurvey, PreSurveyWaitPage, PreSurveyResult,
-    AssessmentInstruction, SkillQuestionPage, SkillTasksWaitPage, Combinedresults]
+    AssessmentInstruction, SkillQuestionPage, SkillTasksWaitPage,
+    SelfEvaluation, SelfEvaluationWaitPage,
+    Control, Treatment1, Treatment2,
+    InvestmentInstruction, InvestmentGame,
+    Combinedresults]
