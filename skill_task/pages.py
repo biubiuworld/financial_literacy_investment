@@ -20,14 +20,14 @@ class Presurvey(Page):
             return False
 
 class PreSurveyWaitPage(WaitPage):
+    wait_for_all_groups = True
+    after_all_players_arrive = 'agg_gender'
+
     def is_displayed(self):
         if self.round_number == 1:
             return True
         else:
             return False
-
-    def after_all_players_arrive(self):
-        pass
 
 class PreSurveyResult(Page):
     def is_displayed(self):
@@ -35,6 +35,13 @@ class PreSurveyResult(Page):
             return True
         else:
             return False
+    def vars_for_template(self):
+        return {
+            'male_count': self.player.male_count,
+            'female_count': self.player.female_count,
+            'other_count': self.player.other_count,
+            'dna_count': self.player.dna_count
+        }
 
 class AssessmentInstruction(Page):
     def is_displayed(self):
