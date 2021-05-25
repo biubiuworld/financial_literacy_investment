@@ -66,6 +66,8 @@ class SkillQuestionPage(Page):
             'questiontext': Constants.skill_question_text[self.round_number - 1]
         }
 
+
+
 # check correct answers
     def before_next_page(self):
         #if self.player.answer == Constants.correct_answers[self.round_number - 1]:

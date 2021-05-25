@@ -20,7 +20,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'skill_task'
     players_per_group = None
-    num_rounds = 6 # number of skill questions
+    num_rounds = 10 # number of skill questions
 
     skill_question_text = [
         '''
@@ -45,19 +45,42 @@ class Constants(BaseConstants):
         '''
         Suppose you owe $1,000 on a loan and the interest rate you are charged is 20% per year compounded annually.  
         If you didn’t pay anything off, at this interest rate, how many years would it take for the amount you owe to double?
-        ''' #q6
+        ''', #q6
+        '''
+        Which of the following is the LEAST risky investment?
+        ''' , # q7
+        '''
+        What is a stock dividend?
+        ''' ,# q8
+        '''
+        Why would someone buy a bond instead of a stock?
+        ''', # q9
+        '''
+        The following graph shows the price of one Rich Rock share over a 12-month period.
+        Which statement about the graph is true?
+        ''', # q10
                     ]
 
     skill_question_choices = [
-                        [[1, 'A. More than $102'], [2, 'B. Exactly $102'], [3, 'C. Less than $102']],
-                        [[1, 'A. More'], [2, 'B. Same'], [3, 'C. Less']],
-                        [[1, 'A. True'], [2, 'B. False']],
-                        [[1, 'A. True'], [2, 'B. False']],
-                        [[1, 'A. Rise'], [2, 'B. Fall'], [3, 'C. Stay the Same'], [4, 'D. No Relationship']],
-                        [[1, 'A. Less than 2 years'], [2, 'B. 2 to 4 years'], [3, 'C. 5 to 9 years'], [4, 'D. 10 or more years']]
+                        [[1, 'A. More than $102'], [2, 'B. Exactly $102'], [3, 'C. Less than $102']],#q1
+                        [[1, 'A. More'], [2, 'B. Same'], [3, 'C. Less']],#q2
+                        [[1, 'A. True'], [2, 'B. False']],#q3
+                        [[1, 'A. True'], [2, 'B. False']],#q4
+                        [[1, 'A. Rise'], [2, 'B. Fall'], [3, 'C. Stay the Same'], [4, 'D. No Relationship']],#q5
+                        [[1, 'A. Less than 2 years'], [2, 'B. 2 to 4 years'],
+                         [3, 'C. 5 to 9 years'], [4, 'D. 10 or more years']],#q6
+                        [[1, 'A. Corporate Bonds'], [2, 'B. Stocks'], [3, 'C. U.S Treasury Bond'], [4, 'D. Mutual Funds']], #q7
+                        [[1, 'A. The price the stock is sold for'],
+                         [2, 'B. Part of a company’s profit that is paid to owners'],
+                         [3, 'C. A capital gain'], [4, 'D. The price paid when stock is sold to an investment bank']], #q8
+                        [[1, 'A. It is a less risky investment'], [2, 'B. It can yield a higher return on investment'],
+                         [3, 'C. To have ownership in a company'], [4, 'D. To receive dividend payments']],#q9
+                        [[1, 'A. The best month to buy the shares was February or March'],
+                         [2, 'B. The share price increased by about 50% over the year'],
+                         [3, 'C. The best month to buy the shares was September'], [4, 'D. None of the above']]#q10
                         ]
 
-    correct_answers = [1, 1, 1, 1, 1, 1]
+    correct_answers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
     payment_per_correct_answer = 1
 
