@@ -107,6 +107,8 @@ class Subsession(BaseSubsession):
             player.other_count = other_count
             player.dna_count = dna_count
 
+
+
     def grouping(self):
         ### assign treatment groups
         for p in self.get_players():
@@ -148,14 +150,25 @@ class Player(BasePlayer):
         choices=
             [1,2,3,4,5,6,7],
             )
-    game_slider = models.FloatField(widget = widgets.RadioSelectHorizontal(),
+
+    self_evaluation1 = models.IntegerField(widget = widgets.RadioSelectHorizontal(),
+        choices=
+            [1,2,3,4,5,6,7,8,9,10],
+            )
+
+    self_evaluation2_slider = models.FloatField(widget = widgets.RadioSelectHorizontal(),
         choices=
             [0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1],
             )
 
+    game_slider = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
 
     # Assign treatments
     treatment_group = models.IntegerField()
+
 
     def set_Allcoations(self):
         self.allocation_a = self.games_slider

@@ -81,15 +81,20 @@ class SkillTasksWaitPage(WaitPage):
         else:
             return False
 
+
+
     def after_all_players_arrive(self):
         pass
 
 class SelfEvaluation(Page):
+    form_model = 'player'
+    form_fields = ['self_evaluation1']
     def is_displayed(self):
         if self.round_number == Constants.num_rounds:
             return True
         else:
             return False
+
 
 class SelfEvaluationWaitPage(WaitPage):
     wait_for_all_groups = True
