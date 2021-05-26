@@ -5,6 +5,28 @@
     Investment Game
 {% endblock %}
 
+{% block styles %}
+<style type="text/css">
+.slider {
+  width: 100%; /* Full-width */
+  height: 15px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  border-radius: 5px;  
+}
+</style>
+{% endblock %}
+{% block scripts %}
+<script>
+var account_A =  document.getElementById("acc_A");
+var account_B = document.getElementById("acc_B");
+function update() {
+  account_A.innerHTML= document.getElementById("game_slider").value;
+  account_B.innerHTML = 100-document.getElementById("game_slider").value;
+}
+</script>
+{% endblock %}
+
 {% block content %}
     Please allocate your money between Account A and Account B <br \>
     For each $1 that you allocate to Account A, you earn: <br \>
@@ -12,7 +34,40 @@
     For each $1 that you allocate to Account B, you earn: <br \>
             $3 with probability [...] <br \>
             $0 with probability [...] <br \>
-{% comment %}Slider here {% endcomment %}
+    <table>
+    <tr>
+    	<td>
+    		<b>
+    		Account A
+    		</b>
+    	</td>
+    	<td >
+    	<div class="slidecontainer", onclick="update()">
+    		<input type="range", class="slider", name="game_slider" id="game_slider" />
+    	</div>
+		</td>
+		<td>
+		<b>
+    		Account B
+    	</b>
+    	</td>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<p id="allocate"></p>
+			Allocation:   <span id="acc_A"></span>% in Account A and <span id="acc_B"></span>% in Account B. 
+		</td>
+		<td>
+		</td>
+	</tr>
+	</table>
+
     For each $1 of you income, you will receive: <br \>
 
     {% next_button %}

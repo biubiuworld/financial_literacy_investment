@@ -92,41 +92,37 @@ class SelfEvaluation(Page):
             return False
 
 class SelfEvaluationWaitPage(WaitPage):
+    wait_for_all_groups = True
+    after_all_players_arrive = 'grouping'
     def is_displayed(self):
         if self.round_number == Constants.num_rounds:
             return True
         else:
             return False
 
-    def after_all_players_arrive(self):
-        pass
 
 class Control(Page):
     def is_displayed(self):
-        if self.round_number == Constants.num_rounds:
+        if self.player.treatment_group == 0 and self.round_number == Constants.num_rounds:
             return True
         else:
             return False
-    def is_treatment(self):
-        return self.player.treatment_group == 0
+
 
 class Treatment1(Page):
     def is_displayed(self):
-        if self.round_number == Constants.num_rounds:
+        if self.player.treatment_group == 1 and self.round_number == Constants.num_rounds:
             return True
         else:
             return False
-    def is_treatment(self):
-        return self.player.treatment_group == 1
+  
 
 class Treatment2(Page):
     def is_displayed(self):
-        if self.round_number == Constants.num_rounds:
+        if self.player.treatment_group == 2 and self.round_number == Constants.num_rounds:
             return True
         else:
             return False
-    def is_treatment(self):
-        return self.player.treatment_group == 2
 
 class InvestmentInstruction(Page):
     def is_displayed(self):
@@ -136,11 +132,18 @@ class InvestmentInstruction(Page):
             return False
 
 class InvestmentGame(Page):
+    form_model = 'player'
+    form_fields = ['game_slider']
     def is_displayed(self):
         if self.round_number == Constants.num_rounds:
             return True
         else:
             return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a,
+        'account_B': self.player.allocation_b
+        }
 
 
 class Combinedresults(Page):

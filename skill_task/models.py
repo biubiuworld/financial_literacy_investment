@@ -107,7 +107,10 @@ class Subsession(BaseSubsession):
             player.other_count = other_count
             player.dna_count = dna_count
 
-
+    def grouping(self):
+        ### assign treatment groups
+        for p in self.get_players():
+            p.treatment_group = 0
 
 
 class Group(BaseGroup):
@@ -120,6 +123,8 @@ class Player(BasePlayer):
     female_count = models.IntegerField(initial =0)
     other_count = models.IntegerField(initial =0)
     dna_count = models.IntegerField(initial =0)
+    allocation_a = models.FloatField()
+    allocation_b = models.FloatField()
     # pre_survey
     age = models.IntegerField(
         min=18,
@@ -143,10 +148,18 @@ class Player(BasePlayer):
         choices=
             [1,2,3,4,5,6,7],
             )
+    game_slider = models.FloatField(widget = widgets.RadioSelectHorizontal(),
+        choices=
+            [0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1],
+            )
 
 
     # Assign treatments
     treatment_group = models.IntegerField()
+
+    def set_Allcoations(self):
+        self.allocation_a = self.games_slider
+        self.allocation_b = self.allocation_a
 
     def creating_treatment(subsession):
         for player in subsession.get_players():
