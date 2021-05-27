@@ -127,6 +127,15 @@ class Player(BasePlayer):
     dna_count = models.IntegerField(initial =0)
     allocation_a = models.FloatField()
     allocation_b = models.FloatField()
+    prob_A_1 = models.FloatField(initial =.1)
+    prob_A_2 = models.FloatField(initial =.2)
+    prob_A_3 = models.FloatField(initial =.3)
+    prob_A_4 = models.FloatField(initial =.4)
+    prob_A_5 = models.FloatField(initial =.5)
+    prob_A_6 = models.FloatField(initial =.6)
+    prob_A_7 = models.FloatField(initial =.7)
+    prob_A_8 = models.FloatField(initial =.8)
+    prob_A_9 = models.FloatField(initial =.9)
     # pre_survey
     age = models.IntegerField(
         min=18,

@@ -147,7 +147,8 @@ class InvestmentGame(Page):
     def vars_for_template(self):
         return {
         'account_A': self.player.allocation_a,
-        'account_B': self.player.allocation_b
+        'prob_A': self.player.prob_A_1,
+        'prob_B': 1-self.player.prob_A_1,
         }
 
 
