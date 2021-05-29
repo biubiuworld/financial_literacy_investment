@@ -50,6 +50,10 @@ class AssessmentInstruction(Page):
         else:
             return False
 
+
+    def before_next_page(self):
+        self.participant.vars['score'] = 0
+
 class SkillQuestionPage(Page):
     form_model = 'player'
     form_fields = ['answer','confidence']
@@ -72,7 +76,12 @@ class SkillQuestionPage(Page):
     def before_next_page(self):
         #if self.player.answer == Constants.correct_answers[self.round_number - 1]:
         if Constants.correct_answers[self.round_number - 1] == self.player.answer:
-            self.player.payoff = Constants.payment_per_correct_answer
+            self.player.if_skill_question_correct = Constants.count_per_correct_answer
+            self.participant.vars['score'] += 1
+            self.player.num_of_correct_answers = self.participant.vars['score']
+        else:
+            self.player.num_of_correct_answers = self.participant.vars['score']
+
 
 class SkillTasksWaitPage(WaitPage):
     def is_displayed(self):
@@ -81,10 +90,12 @@ class SkillTasksWaitPage(WaitPage):
         else:
             return False
 
+    wait_for_all_groups = True
+    # after_all_players_arrive = 'agg_correct_answers'
 
 
-    def after_all_players_arrive(self):
-        pass
+
+
 
 class SelfEvaluation(Page):
     form_model = 'player'
@@ -120,6 +131,10 @@ class Treatment1(Page):
             return True
         else:
             return False
+    def vars_for_template(self):
+        return {
+            'num_of_correct_answers': self.player.num_of_correct_answers
+        }
   
 
 class Treatment2(Page):
@@ -128,6 +143,10 @@ class Treatment2(Page):
             return True
         else:
             return False
+    def vars_for_template(self):
+        return {
+            'num_of_correct_answers': self.player.num_of_correct_answers
+        }
 
 class InvestmentInstruction(Page):
     def is_displayed(self):
@@ -162,19 +181,19 @@ class Combinedresults(Page):
     #     return False
 
     def vars_for_template(self):
-        all_rounds = self.player.in_all_rounds()
-        num_of_correct_answers = 0
-        for player in all_rounds:
-            num_of_correct_answers += player.payoff
-        return {
-                "num_of_correct_answers": num_of_correct_answers
-        }
-
+        # all_rounds = self.player.in_all_rounds()
+        # num_of_correct_answers = 0
+        # for player in all_rounds:
+        #     num_of_correct_answers += player.if_skill_question_correct
+        # return {
+        #         "num_of_correct_answers": num_of_correct_answers
+        # }
+        return {"num_of_correct_answers": self.player.num_of_correct_answers}
 
 page_sequence = [
     Introduction, Presurvey, PreSurveyWaitPage, PreSurveyResult,
     AssessmentInstruction, SkillQuestionPage, SkillTasksWaitPage,
-    SelfEvaluation, SelfEvaluationWaitPage,
+    SelfEvaluation, SelfEvaluationWaitPage, Combinedresults,
     Control, Treatment1, Treatment2,
     InvestmentInstruction, InvestmentGame,
     Combinedresults]

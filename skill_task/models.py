@@ -82,7 +82,7 @@ class Constants(BaseConstants):
 
     correct_answers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-    payment_per_correct_answer = 1
+    count_per_correct_answer = 1
 
 class Subsession(BaseSubsession):
     def agg_gender(self):
@@ -107,12 +107,18 @@ class Subsession(BaseSubsession):
             player.other_count = other_count
             player.dna_count = dna_count
 
+    # def agg_correct_answers(self):
+    #     for player in self.get_players():
+    #         num_of_correct_answers = 0
+    #         for round_num in player.in_all_rounds():
+    #             num_of_correct_answers += player.num_of_correct_answers
+    #         player.num_of_correct_answers = num_of_correct_answers
 
 
     def grouping(self):
         ### assign treatment groups
         for p in self.get_players():
-            p.treatment_group = 0
+            p.treatment_group = 1
 
 
 class Group(BaseGroup):
@@ -120,6 +126,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+
+    if_skill_question_correct = models.IntegerField(initial =0)
+    num_of_correct_answers = models.IntegerField(initial =0)
     ## stores aggregated gender data for all players
     male_count = models.IntegerField(initial =0)
     female_count = models.IntegerField(initial =0)
@@ -186,5 +195,4 @@ class Player(BasePlayer):
     def creating_treatment(subsession):
         for player in subsession.get_players():
             player.treatment_group = random.choice([0, 1, 2])
-
 
