@@ -134,8 +134,24 @@ class Player(BasePlayer):
     female_count = models.IntegerField(initial =0)
     other_count = models.IntegerField(initial =0)
     dna_count = models.IntegerField(initial =0)
-    allocation_a = models.FloatField()
-    allocation_b = models.FloatField()
+    allocation_a1 = models.FloatField()
+    allocation_b1 = models.FloatField()
+    allocation_a2 = models.FloatField()
+    allocation_b2 = models.FloatField()
+    allocation_a3 = models.FloatField()
+    allocation_b3 = models.FloatField()
+    allocation_a4 = models.FloatField()
+    allocation_b4 = models.FloatField()
+    allocation_a5 = models.FloatField()
+    allocation_b5 = models.FloatField()
+    allocation_a6 = models.FloatField()
+    allocation_b6 = models.FloatField()
+    allocation_a7 = models.FloatField()
+    allocation_b7 = models.FloatField()
+    allocation_a8 = models.FloatField()
+    allocation_b8 = models.FloatField()
+    allocation_a9 = models.FloatField()
+    allocation_b9 = models.FloatField()
     prob_A_1 = models.FloatField(initial =.1)
     prob_A_2 = models.FloatField(initial =.2)
     prob_A_3 = models.FloatField(initial =.3)
@@ -179,7 +195,39 @@ class Player(BasePlayer):
             [0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1],
             )
 
-    game_slider = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+    game_slider1 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider2 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider3 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider4 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider5 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider6 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider7 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider8 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
+        choices=
+            [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
+            )
+    game_slider9 = models.FloatField(widget=widgets.RadioSelectHorizontal(),
         choices=
             [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1],
             )
@@ -188,9 +236,25 @@ class Player(BasePlayer):
     treatment_group = models.IntegerField()
 
 
-    def set_Allcoations(self):
-        self.allocation_a = self.games_slider
-        self.allocation_b = self.allocation_a
+    def set_Allocations(self):
+        self.allocation_a1 = self.games_slider1
+        self.allocation_b1 = 1-self.allocation_a1
+        self.allocation_a2 = self.games_slider2
+        self.allocation_b2 = 1-self.allocation_a2
+        self.allocation_a3 = self.games_slider3
+        self.allocation_b3 = 1-self.allocation_a3
+        self.allocation_a4 = self.games_slider4
+        self.allocation_b4 = 1-self.allocation_a4
+        self.allocation_a5 = self.games_slider5
+        self.allocation_b5 = 1-self.allocation_a5
+        self.allocation_a6 = self.games_slider6
+        self.allocation_b6 = 1-self.allocation_a6
+        self.allocation_a7 = self.games_slider7
+        self.allocation_b7 = 1-self.allocation_a7
+        self.allocation_a8 = self.games_slider8
+        self.allocation_b8 = 1-self.allocation_a8
+        self.allocation_a9 = self.games_slider9
+        self.allocation_b9 = 1-self.allocation_a9
 
     def creating_treatment(subsession):
         for player in subsession.get_players():

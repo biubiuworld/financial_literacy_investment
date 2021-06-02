@@ -155,9 +155,9 @@ class InvestmentInstruction(Page):
         else:
             return False
 
-class InvestmentGame(Page):
+class InvestmentGame1(Page):
     form_model = 'player'
-    form_fields = ['game_slider']
+    form_fields = ['game_slider1']
     def is_displayed(self):
         if self.round_number == Constants.num_rounds:
             return True
@@ -165,11 +165,139 @@ class InvestmentGame(Page):
             return False
     def vars_for_template(self):
         return {
-        'account_A': self.player.allocation_a,
+        'account_A': self.player.allocation_a1,
         'prob_A': self.player.prob_A_1,
         'prob_B': 1-self.player.prob_A_1,
         }
 
+class InvestmentGame2(Page):
+    form_model = 'player'
+    form_fields = ['game_slider2']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a2,
+        'prob_A': self.player.prob_A_2,
+        'prob_B': 1-self.player.prob_A_2,
+        }
+
+class InvestmentGame3(Page):
+    form_model = 'player'
+    form_fields = ['game_slider3']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a3,
+        'prob_A': self.player.prob_A_3,
+        'prob_B': 1-self.player.prob_A_3,
+        }
+
+class InvestmentGame4(Page):
+    form_model = 'player'
+    form_fields = ['game_slider4']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a4,
+        'prob_A': self.player.prob_A_4,
+        'prob_B': 1-self.player.prob_A_4,
+        }
+
+class InvestmentGame5(Page):
+    form_model = 'player'
+    form_fields = ['game_slider5']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a5,
+        'prob_A': self.player.prob_A_5,
+        'prob_B': 1-self.player.prob_A_5,
+        }
+
+class InvestmentGame6(Page):
+    form_model = 'player'
+    form_fields = ['game_slider6']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a6,
+        'prob_A': self.player.prob_A_6,
+        'prob_B': 1-self.player.prob_A_6,
+        }
+
+class InvestmentGame7(Page):
+    form_model = 'player'
+    form_fields = ['game_slider7']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a7,
+        'prob_A': self.player.prob_A_7,
+        'prob_B': 1-self.player.prob_A_7,
+        }
+
+class InvestmentGame8(Page):
+    form_model = 'player'
+    form_fields = ['game_slider8']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a8,
+        'prob_A': self.player.prob_A_8,
+        'prob_B': 1-self.player.prob_A_8,
+        }
+
+class InvestmentGame9(Page):
+    form_model = 'player'
+    form_fields = ['game_slider9']
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
+    def vars_for_template(self):
+        return {
+        'account_A': self.player.allocation_a9,
+        'prob_A': self.player.prob_A_9,
+        'prob_B': 1-self.player.prob_A_9,
+        }
+class InvestmentGameWaitPage(WaitPage):
+    wait_for_all_groups = True
+    after_all_players_arrive = 'set_Allocations'
+
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+        else:
+            return False
 
 class Combinedresults(Page):
     def is_displayed(self):
@@ -177,17 +305,8 @@ class Combinedresults(Page):
             return True
         else:
             return False
-    # def is_displayed(self):
-    #     return False
 
     def vars_for_template(self):
-        # all_rounds = self.player.in_all_rounds()
-        # num_of_correct_answers = 0
-        # for player in all_rounds:
-        #     num_of_correct_answers += player.if_skill_question_correct
-        # return {
-        #         "num_of_correct_answers": num_of_correct_answers
-        # }
         return {"num_of_correct_answers": self.player.num_of_correct_answers}
 
 page_sequence = [
@@ -195,5 +314,6 @@ page_sequence = [
     AssessmentInstruction, SkillQuestionPage, SkillTasksWaitPage,
     SelfEvaluation, SelfEvaluationWaitPage, Combinedresults,
     Control, Treatment1, Treatment2,
-    InvestmentInstruction, InvestmentGame,
+    InvestmentInstruction, InvestmentGame1, InvestmentGame2, InvestmentGame3, InvestmentGame4, InvestmentGame5,
+    InvestmentGame6, InvestmentGame7, InvestmentGame8, InvestmentGame9, InvestmentGameWaitPage,
     Combinedresults]
