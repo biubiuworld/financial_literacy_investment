@@ -312,7 +312,7 @@ class Combinedresults(Page):
 page_sequence = [
     Introduction, Presurvey, PreSurveyWaitPage, PreSurveyResult,
     AssessmentInstruction, SkillQuestionPage, SkillTasksWaitPage,
-    SelfEvaluation, SelfEvaluationWaitPage, Combinedresults,
+    SelfEvaluation, SelfEvaluationWaitPage,
     Control, Treatment1, Treatment2,
     InvestmentInstruction, InvestmentGame1, InvestmentGame2, InvestmentGame3, InvestmentGame4, InvestmentGame5,
     InvestmentGame6, InvestmentGame7, InvestmentGame8, InvestmentGame9, InvestmentGameWaitPage,
