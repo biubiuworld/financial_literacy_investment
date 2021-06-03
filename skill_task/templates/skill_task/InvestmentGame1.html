@@ -14,6 +14,10 @@
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   border-radius: 5px;  
 }
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
 .game_container{
 	background: #d3d3d3;
 }
@@ -72,7 +76,20 @@ function update() {
     	</td>
     	<td >
     	<div class="slidecontainer", onclick="update()">
-    		<input type="range", class="slider", name="game_slider" id="game_slider" />
+    		<input type="range", class="slider", name="game_slider" id="game_slider", step="10", list = "ticks" />
+        <datalist id="ticks">
+            <option>0</option>
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            <option>50</option>
+            <option>60</option>
+            <option>70</option>
+            <option>80</option>
+            <option>90</option>
+            <option>100</option>
+        </datalist>
     	</div>
 		</td>
 		<td>
