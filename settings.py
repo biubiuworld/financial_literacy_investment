@@ -20,6 +20,12 @@ SESSION_CONFIGS = [
         app_sequence=['Investment_game_part1']
     ),
     dict(
+        name='skill_task_part2',
+        display_name="Skill tasks part 2",
+        num_demo_participants=1,
+        app_sequence=['skill_task_part2']
+    ),
+    dict(
        name='demographics_survey',
        display_name="Demographics Survey",
        num_demo_participants=3,
