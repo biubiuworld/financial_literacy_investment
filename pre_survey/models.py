@@ -24,7 +24,27 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def agg_gender(self):
+        male_count = 0
+        female_count = 0
+        other_count = 0
+        dna_count = 0
+        ## aggregate gender data
+        for player in self.get_players():
+            if player.gender == 0:
+                male_count += 1
+            elif player.gender == 1:
+                female_count += 1
+            elif player.gender == 2:
+                other_count += 1
+            elif player.gender == 3:
+                dna_count += 1
+        ## set gender counts
+        for player in self.get_players():
+            player.male_count = male_count
+            player.female_count = female_count
+            player.other_count = other_count
+            player.dna_count = dna_count
 
 
 class Group(BaseGroup):
@@ -48,3 +68,8 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    male_count = models.IntegerField(initial =0)
+    female_count = models.IntegerField(initial =0)
+    other_count = models.IntegerField(initial =0)
+    dna_count = models.IntegerField(initial =0)

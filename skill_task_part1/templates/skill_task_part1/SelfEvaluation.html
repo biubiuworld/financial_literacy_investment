@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Self Evaluation
+{% endblock %}
+
+{% block content %}
+    Now that you have finished the assessment, please answer the following questions: <br />
+ 1. Of the ten questions, how many do you believe you got correct? <br />
+ <br>
+        {% formfield player.self_evaluation1 with label="" %}
+     </p>
+
+
+ 2. Among the 20 people who are taking the assessment in this session,
+what percentage of the group do you believe you scored better than?
+For example, if you think you did better than 30% of the other participants,
+choose 30%.  If you think you did better than 90% of the other participants, choose 90%. <br />
+ {% formfield player.self_evaluation2 with label="" %}
+</p>
+
+Note: Your compensation will depend on how close you are to the actual answer to these two questions, so try to answer as accurately as possible.
+
+
+
+
+    {% next_button %}
+
+{% endblock %}

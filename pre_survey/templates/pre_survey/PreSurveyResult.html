@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Pre-Survey Questions Results
+{% endblock %}
+
+{% block content %}
+    Of the 20 participants of this study, {{male_count}} are male, {{female_count}} are female, {{other_count}} identify as other and {{dna_count}} prefer not to say.
+
+    {% next_button %}
+
+{% endblock %}

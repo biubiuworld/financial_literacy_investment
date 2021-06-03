@@ -4,9 +4,16 @@ SESSION_CONFIGS = [
     dict(
        name='pre_survey',
        display_name="Pre Survey",
-       num_demo_participants=3,
+       num_demo_participants=1,
        app_sequence=['pre_survey']
     ),
+    dict(
+        name='skill_task_part1',
+        display_name="Skill tasks part 1",
+        num_demo_participants=1,
+        app_sequence=['skill_task_part1']
+    ),
+
     dict(
        name='demographics_survey',
        display_name="Demographics Survey",
