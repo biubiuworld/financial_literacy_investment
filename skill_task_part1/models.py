@@ -23,22 +23,20 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     confidence_choices = [
-        [1, '1 - Completely unconfident'],
+        [1, '1'],
         [2, '2'],
         [3, '3'],
         [4, '4'],
         [5, '5'],
         [6, '6'],
-        [7, '7 - Completely confident']
+        [7, '7']
     ]
     correct_answer = [1,1,1,1,1]
 
 
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        for player in self.get_players():
-            player.treatment_group = random.choice([0,1,2])
+    pass
 
 
 class Group(BaseGroup):
@@ -108,31 +106,31 @@ class Player(BasePlayer):
     )
 
     confidence_level_question1 = models.IntegerField(
-        label="How confident are you about your answer?",
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
         choices=Constants.confidence_choices,
         widget=widgets.RadioSelectHorizontal
     )
 
     confidence_level_question2 = models.IntegerField(
-        label="How confident are you about your answer?",
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
         choices=Constants.confidence_choices,
         widget=widgets.RadioSelectHorizontal
     )
 
     confidence_level_question3 = models.IntegerField(
-        label="How confident are you about your answer?",
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
         choices=Constants.confidence_choices,
         widget=widgets.RadioSelectHorizontal
     )
 
     confidence_level_question4 = models.IntegerField(
-        label="How confident are you about your answer?",
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
         choices=Constants.confidence_choices,
         widget=widgets.RadioSelectHorizontal
     )
 
     confidence_level_question5 = models.IntegerField(
-        label="How confident are you about your answer?",
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
         choices=Constants.confidence_choices,
         widget=widgets.RadioSelectHorizontal
     )
@@ -143,9 +141,9 @@ class Player(BasePlayer):
             )
     self_evaluation2 = models.IntegerField(widget = widgets.RadioSelectHorizontal(),
         choices=
-            [[10, "10%"],[20, "20%"],[30, "30%"],[40, "40%"],[50, "50%"],
+            [[0, "0%"],[10, "10%"],[20, "20%"],[30, "30%"],[40, "40%"],[50, "50%"],
              [60, "60%"],[70, "70%"],[80, "80%"],[90, "90%"],[100, "100%"]],
             )
 
-    treatment_group = models.IntegerField()
+
 

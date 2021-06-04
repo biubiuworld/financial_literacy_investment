@@ -21,6 +21,15 @@ class Constants(BaseConstants):
     name_in_url = 'skill_task_part2'
     players_per_group = None
     num_rounds = 1
+    confidence_choices = [
+        [1, '1'],
+        [2, '2'],
+        [3, '3'],
+        [4, '4'],
+        [5, '5'],
+        [6, '6'],
+        [7, '7']
+    ]
     correct_answer = [1, 1, 1, 1, 1]
 
 class Subsession(BaseSubsession):
@@ -99,3 +108,32 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect()
     )
 
+    part2_confidence_level_question1 = models.IntegerField(
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
+        choices=Constants.confidence_choices,
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    part2_confidence_level_question2 = models.IntegerField(
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
+        choices=Constants.confidence_choices,
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    part2_confidence_level_question3 = models.IntegerField(
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
+        choices=Constants.confidence_choices,
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    part2_confidence_level_question4 = models.IntegerField(
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
+        choices=Constants.confidence_choices,
+        widget=widgets.RadioSelectHorizontal
+    )
+
+    part2_confidence_level_question5 = models.IntegerField(
+        label="How confident are you about your answer? (1 = not confident at all; 7 = completely confident)",
+        choices=Constants.confidence_choices,
+        widget=widgets.RadioSelectHorizontal
+    )
