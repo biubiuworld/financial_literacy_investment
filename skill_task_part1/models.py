@@ -8,6 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
+from scipy.stats import percentileofscore
 import random
 
 
@@ -40,7 +41,14 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
+    def get_ranking(self):
+        all_scores = [] # stores the scores of all players
+        for p in self.get_players():
+            all_scores.append(p.num_of_correct_answers_part1) # storing the data
+
+        # calculating the ranking of each player        
+        for p in self.get_players():
+            p.participant.vars["ranking"] = percentileofscore(all_scores, p.num_of_correct_answers_part1, "rank")
 
 
 class Player(BasePlayer):

@@ -26,7 +26,8 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def creating_session(self):
         for player in self.get_players():
-            player.treatment_group = random.choice([0, 1, 2])
+            # player.treatment_group = random.choice([0, 1, 2])
+            player.treatment_group = 2
 
 
 class Group(BaseGroup):

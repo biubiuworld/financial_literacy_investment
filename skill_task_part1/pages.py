@@ -1,6 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants
+from .models import Constants, Group
 
 class AssessmentInstruction(Page):
     pass
@@ -58,10 +58,7 @@ class SelfEvaluation(Page):
         self.participant.vars['self_evaluation2'] = self.player.self_evaluation2
 
 class SelfEvaluationWaitPage(WaitPage):
-    wait_for_all_groups = True
-
-
-
+    after_all_players_arrive = "get_ranking"
 
 
 page_sequence = [AssessmentInstruction, FirstSkillQuestionPage1, FirstSkillQuestionPage2, FirstSkillQuestionPage3,

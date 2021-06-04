@@ -36,10 +36,12 @@ class Treatment2(Page):
             return False
 
     def vars_for_template(self):
+        print(self.participant.vars)
         return {
             'num_of_correct_answers': self.participant.vars["num_of_correct_answers_part1"],
             'self_evaluation1': self.participant.vars['self_evaluation1'],
-            'self_evaluation2': self.participant.vars['self_evaluation2']
+            'self_evaluation2': self.participant.vars['self_evaluation2'],
+            'ranking': self.participant.vars['ranking']
         }
 
 
