@@ -1,6 +1,7 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
+from statistics import median
 
 class Introduction(Page):
     pass
@@ -18,11 +19,18 @@ class PreSurveyWaitPage(WaitPage):
 class PreSurveyResult(Page):
 
     def vars_for_template(self):
+
+        # calculating the median
+        ages = [] # list for storing all the ages
+        for p in self.group.get_players():
+            ages.append(p.age)
+
         return {
             'male_count': self.player.male_count,
             'female_count': self.player.female_count,
             'other_count': self.player.other_count,
-            'dna_count': self.player.dna_count
+            'dna_count': self.player.dna_count,
+            'age_median': median(ages)
         }
 
 
