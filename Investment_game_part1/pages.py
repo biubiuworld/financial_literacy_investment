@@ -12,7 +12,7 @@ class InvestmentGame1(Page):
 
     def vars_for_template(self):
         return {
-        'account_A': self.player.allocation1_a1,
+        # 'account_A': self.player.allocation1_a1,
         'prob_A': self.player.prob_A_1,
         'prob_B': 1-self.player.prob_A_1,
         }

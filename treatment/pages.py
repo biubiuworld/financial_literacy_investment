@@ -1,6 +1,7 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
+from random import choice
 
 
 class Control(Page):
@@ -36,12 +37,21 @@ class Treatment2(Page):
             return False
 
     def vars_for_template(self):
-        print(self.participant.vars)
+
+        # telling the player if he is on the top/bottom 50%
+        ranking_over_50 = None
+        if self.participant.vars['ranking'] > 50:
+            ranking_over_50 = "better than 50%"
+        elif self.participant.vars['ranking'] < 50:
+            ranking_over_50 = "lower than 50%"
+        else:
+            ranking_over_50 = choice(["better than 50%", "lower than 50%"])
+        
         return {
             'num_of_correct_answers': self.participant.vars["num_of_correct_answers_part1"],
             'self_evaluation1': self.participant.vars['self_evaluation1'],
             'self_evaluation2': self.participant.vars['self_evaluation2'],
-            'ranking': self.participant.vars['ranking']
+            'ranking': ranking_over_50
         }
 
 
