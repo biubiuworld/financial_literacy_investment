@@ -7,8 +7,8 @@ class InvestmentInstruction(Page):
     pass
 
 class InvestmentGame1(Page):
-    form_model = 'player'
-    form_fields = ['game1_slider1']
+    #form_model = 'player'
+    #form_fields = ['game1_slider1']
 
     def vars_for_template(self):
         return {
