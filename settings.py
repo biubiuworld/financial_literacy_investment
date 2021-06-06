@@ -10,7 +10,7 @@ SESSION_CONFIGS = [
     dict(
         name='skill_task_part1',
         display_name="Skill tasks part 1 + treatment",
-        num_demo_participants=1,
+        num_demo_participants=20,
         app_sequence=['skill_task_part1','treatment']
     ),
     dict(

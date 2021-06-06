@@ -25,9 +25,19 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        for player in self.get_players():
-            # player.treatment_group = random.choice([0, 1, 2])
-            player.treatment_group = 2
+
+        # obtaining the ids
+        player_ids = [p for p in range(1, self.session.config["num_demo_participants"] + 1)]
+        random.shuffle(player_ids) # randomizing ids
+
+        # assigning treatments randomly
+        for p in self.get_players():
+            if player_ids.index(p.id_in_group) <= 7:
+                p.treatment_group = 0
+            elif player_ids.index(p.id_in_group) <= 13:
+                p.treatment_group = 1
+            else:
+                p.treatment_group = 2
 
 
 class Group(BaseGroup):
