@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Summary
+{% endblock %}
+
+{% block content %}
+ <p>
+    <b style="color:#F55607"> First Skill Tasks Results </b>
+ </p>
+ <p>
+    You got {{num_of_correct_answers_part1}} questions correct. You guess you got {{self_evaluation1}} questions correct. </br>
+     Your are better than {{ranking}}% of the subjects.
+ </p>
+  <p>
+    <b style="color:#F55607"> First Investment Game Results </b>
+ </p>
+ <p>
+    You assigned {{game1_accountA_p10}}% to Account A, and {{game1_accountB_p10}}% to Account B when p=0.1 </br>
+     You assigned {{game1_accountA_p20}}% to Account A, and {{game1_accountB_p20}}% to Account B when p=0.2 </br>
+     You assigned {{game1_accountA_p30}}% to Account A, and {{game1_accountB_p30}}% to Account B when p=0.3 </br>
+     You assigned {{game1_accountA_p40}}% to Account A, and {{game1_accountB_p40}}% to Account B when p=0.4 </br>
+     You assigned {{game1_accountA_p50}}% to Account A, and {{game1_accountB_p50}}% to Account B when p=0.5 </br>
+     You assigned {{game1_accountA_p60}}% to Account A, and {{game1_accountB_p60}}% to Account B when p=0.6 </br>
+     You assigned {{game1_accountA_p70}}% to Account A, and {{game1_accountB_p70}}% to Account B when p=0.7 </br>
+     You assigned {{game1_accountA_p80}}% to Account A, and {{game1_accountB_p80}}% to Account B when p=0.8 </br>
+     You assigned {{game1_accountA_p90}}% to Account A, and {{game1_accountB_p90}}% to Account B when p=0.9 </br>
+ </p>
+  <p>
+    <b style="color:#F55607"> Second Investment Game Results </b>
+ </p>
+ <p>
+    You assigned {{game2_accountA_p10}}% to Account A, and {{game2_accountB_p10}}% to Account B when p=0.1 </br>
+     You assigned {{game2_accountA_p20}}% to Account A, and {{game2_accountB_p20}}% to Account B when p=0.2 </br>
+     You assigned {{game2_accountA_p30}}% to Account A, and {{game2_accountB_p30}}% to Account B when p=0.3 </br>
+     You assigned {{game2_accountA_p40}}% to Account A, and {{game2_accountB_p40}}% to Account B when p=0.4 </br>
+     You assigned {{game2_accountA_p50}}% to Account A, and {{game2_accountB_p50}}% to Account B when p=0.5 </br>
+     You assigned {{game2_accountA_p60}}% to Account A, and {{game2_accountB_p60}}% to Account B when p=0.6 </br>
+     You assigned {{game2_accountA_p70}}% to Account A, and {{game2_accountB_p70}}% to Account B when p=0.7 </br>
+     You assigned {{game2_accountA_p80}}% to Account A, and {{game2_accountB_p80}}% to Account B when p=0.8 </br>
+     You assigned {{game2_accountA_p90}}% to Account A, and {{game2_accountB_p90}}% to Account B when p=0.9 </br>
+ </p>
+  <p>
+    <b style="color:#F55607"> Second Skill Tasks Results </b>
+ </p>
+ <p>
+    You got {{num_of_correct_answers_part2}} questions correct.  Your are better than {{ranking_subgroup}}% of the subjects in the subgroup.
+ </p>
+    {% next_button %}
+
+{% endblock %}

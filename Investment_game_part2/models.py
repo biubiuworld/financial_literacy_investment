@@ -18,7 +18,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Investment_game_part1'
+    name_in_url = 'Investment_game_part2'
     players_per_group = None
     num_rounds = 1
 
@@ -32,15 +32,15 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    game1_slider1 = models.FloatField()
-    game1_slider2 = models.FloatField()
-    game1_slider3 = models.FloatField()
-    game1_slider4 = models.FloatField()
-    game1_slider5 = models.FloatField()
-    game1_slider6 = models.FloatField()
-    game1_slider7 = models.FloatField()
-    game1_slider8 = models.FloatField()
-    game1_slider9 = models.FloatField()
+    game2_slider1 = models.FloatField()
+    game2_slider2 = models.FloatField()
+    game2_slider3 = models.FloatField()
+    game2_slider4 = models.FloatField()
+    game2_slider5 = models.FloatField()
+    game2_slider6 = models.FloatField()
+    game2_slider7 = models.FloatField()
+    game2_slider8 = models.FloatField()
+    game2_slider9 = models.FloatField()
 
 
     prob_A_1 = models.FloatField(initial =.1)
@@ -52,7 +52,5 @@ class Player(BasePlayer):
     prob_A_7 = models.FloatField(initial =.7)
     prob_A_8 = models.FloatField(initial =.8)
     prob_A_9 = models.FloatField(initial =.9)
-
-
 
 

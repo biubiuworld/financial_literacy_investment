@@ -44,8 +44,7 @@ class SecondSkillQuestionPage5(Page):
 
 
 class SkillTasksWaitPage(WaitPage):
-    wait_for_all_groups = True
-
+    after_all_players_arrive = "get_ranking"
 
 class Results(Page):
     pass

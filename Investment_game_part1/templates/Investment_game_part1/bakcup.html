@@ -1,0 +1,106 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Investment Game
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block content %}
+<body>
+
+<div>
+	<div>
+	<p>
+    Please allocate your money between Account A and Account B <br \>
+	</p>
+	<p>
+    For each $1 that you allocate to Account A, you earn:
+	</p>
+	<p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $1 with probability 1
+	</p>
+	<p>
+    For each $1 that you allocate to Account B, you earn:
+	</p>
+	<p>
+    <p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $3 with probability <b style="color:#F55607"> {{prob_A}} </b>
+	</p>
+	<p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $0 with probability <b style="color:#F55607"> {{prob_B}} </b>
+		
+	</p>
+	<p>
+		<br>
+		<br>
+	</p>
+
+	<div>
+    <table>
+    <tr>
+    	<td>
+    		<b>
+				Account A <br>
+				$1 with probability 1
+			</b>
+    	</td>
+		<td>
+			<div class="range">
+				
+				<input type="range" id="range" name="game1_slider1" step="10" style="width:240px" min="0" max="100">
+				<div class="ticks" id="ticks">
+					<!-- JS generates the spans here -->
+				</div>
+			</div>
+		</td>
+		<td>
+		<b>
+    		Account B <br>
+			$3 with probability {{prob_A}} <br>
+			$0 with probability {{prob_B}}
+    	</b>
+    	</td>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<p ></p>
+			Allocation:   <span id="acc_A_1"></span>% in Account A and <span id="acc_B_1"></span>% in Account B. 
+		</td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	<p>
+		<br>
+		<br>
+	</p>
+	<div>
+		<div>
+			 <br>
+    		For each $1 of you income, you will receive: <br \>
+    		 <br>
+    	</div>
+    	<div>
+    		<p>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_2"></span> * $1) + (<span id="acc_B_2"></span> * $3) = <span id="value_G"></span> with probabilty {{prob_A}}
+    		</p>
+    		<p>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_3"></span> * $1) + (<span id="acc_B_3"></span> * $0) =<span id="value_B"></span> with probabilty {{prob_B}}
+    		</p>
+    	</div>
+   	</div>
+</div>
+
+{% next_button %}
+</body>
+
+{% endblock %}

@@ -11,20 +11,26 @@ SESSION_CONFIGS = [
         name='skill_task_part1',
         display_name="Skill tasks part 1 + treatment",
         num_demo_participants=1,
-        app_sequence=['skill_task_part1','treatment']
+        app_sequence=['skill_task_part1','Investment_game_part1','treatment','Investment_game_part2','skill_task_part2','Summary']
     ),
-    dict(
-        name='Investment_game_part1',
-        display_name="Investment_game_part1",
-        num_demo_participants=1,
-        app_sequence=['Investment_game_part1']
-    ),
-    dict(
-        name='skill_task_part2',
-        display_name="Skill tasks part 2",
-        num_demo_participants=1,
-        app_sequence=['skill_task_part2']
-    ),
+    # dict(
+    #     name='Investment_game_part1',
+    #     display_name="Investment_game_part1",
+    #     num_demo_participants=1,
+    #     app_sequence=['Investment_game_part1']
+    # ),
+    # dict(
+    #     name='Investment_game_part2',
+    #     display_name="Investment_game_part2",
+    #     num_demo_participants=1,
+    #     app_sequence=['Investment_game_part2']
+    # ),
+    # dict(
+    #     name='skill_task_part2',
+    #     display_name="Skill tasks part 2",
+    #     num_demo_participants=1,
+    #     app_sequence=['skill_task_part2']
+    # ),
     dict(
        name='demographics_survey',
        display_name="Demographics Survey",

@@ -25,10 +25,35 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        for player in self.get_players():
-            # player.treatment_group = random.choice([0, 1, 2])
-            player.treatment_group = 2
 
+        # obtaining the ids
+        player_ids = [p for p in range(1, self.session.config["num_demo_participants"] + 1)]
+        random.shuffle(player_ids) # randomizing ids
+
+        # assigning treatments randomly
+        for p in self.get_players():
+            if player_ids.index(p.id_in_group) <= 7:
+                p.treatment_group = 0
+            elif player_ids.index(p.id_in_group) <= 13:
+                p.treatment_group = 1
+            else:
+                p.treatment_group = 2
+
+        player_ids2 = [p for p in range(1, self.session.config["num_demo_participants"] + 1)]
+        random.shuffle(player_ids2)
+        for p in self.get_players():
+            if player_ids2.index(p.id_in_group) <= 3:
+                p.subgroup = 1
+            elif player_ids2.index(p.id_in_group) <= 7:
+                p.subgroup = 2
+            elif player_ids2.index(p.id_in_group) <= 11:
+                p.subgroup = 3
+            elif player_ids2.index(p.id_in_group) <= 15:
+                p.subgroup = 4
+            else:
+                p.subgroup = 5
+        for p in self.get_players():
+            p.participant.vars['subgroup'] = p.subgroup
 
 class Group(BaseGroup):
     pass
@@ -36,3 +61,4 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     treatment_group = models.IntegerField()
+    subgroup = models.IntegerField()

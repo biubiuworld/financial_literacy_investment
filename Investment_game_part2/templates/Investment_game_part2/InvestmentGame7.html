@@ -1,0 +1,202 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Investment Game
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.slider {
+  width: 100%; /* Full-width */
+  height: 15px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  border-radius: 5px;  
+}
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+.game_container{
+	background: #d3d3d3;
+}
+
+</style>
+{% endblock %}
+{% block scripts %}
+<script>
+var account_A_1 =  document.getElementById("acc_A_1");
+var account_B_1 = document.getElementById("acc_B_1");
+var account_A_2 =  document.getElementById("acc_A_2");
+var account_B_2 = document.getElementById("acc_B_2");
+var account_A_3 =  document.getElementById("acc_A_3");
+var account_B_3 = document.getElementById("acc_B_3");
+var account_A_4 =  document.getElementById("acc_A_4");
+var account_B_4 = document.getElementById("acc_B_4");
+var account_A_5 =  document.getElementById("acc_A_5");
+var account_B_5 = document.getElementById("acc_B_5");
+var value_G =  document.getElementById("value_G");
+var value_B = document.getElementById("value_B");
+var value_M =  document.getElementById("value_M");
+var value_N = document.getElementById("value_N");
+function update() {
+  account_A_1.innerHTML= (document.getElementById("game2_slider7").value);
+  account_B_1.innerHTML = (100-document.getElementById("game2_slider7").value);
+  account_A_2.innerHTML= (document.getElementById("game2_slider7").value)/100;
+  account_B_2.innerHTML = (100-document.getElementById("game2_slider7").value)/100;
+  account_A_3.innerHTML= (document.getElementById("game2_slider7").value)/100;
+  account_B_3.innerHTML = (100-document.getElementById("game2_slider7").value)/100;
+  account_A_4.innerHTML= (document.getElementById("game2_slider7").value)/100;
+  account_B_4.innerHTML = (100-document.getElementById("game2_slider7").value)/100;
+  account_A_5.innerHTML= (document.getElementById("game2_slider7").value)/100;
+  account_B_5.innerHTML = (100-document.getElementById("game2_slider7").value)/100;
+  var A = (document.getElementById("game2_slider7").value)/100;
+  var B = (100-document.getElementById("game2_slider7").value)/100;
+  value_G.innerHTML = Math.round(((A*1)+(B*3))*100)/100
+  value_B.innerHTML = (A*1)+(B*1)
+  value_M.innerHTML = Math.round(((A*1)+(B*1))*100)/100
+  value_N.innerHTML = (A*1)+(B*0)
+}
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div class = "game_container">
+	<div>
+	<p>
+    Please allocate your money between Account A and Account B <br \>
+	</p>
+	<p>
+    For each $1 that you allocate to Account A, you earn:
+	</p>
+	<p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $1 with probability 1
+	</p>
+	<p>
+    For each $1 that you allocate to Account B:
+	</p>
+	<p>
+    If you score in the <b style="color:#1E8BDC"> top </b> half of your group, you earn:
+	</p>
+	<p>
+    <p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $3 with probability <b style="color:#F55607"> {{prob_A}} </b>
+	</p>
+	<p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $1 with probability <b style="color:#F55607"> {{prob_B}} </b>
+		
+	</p>
+	<p>
+    For each $1 that you allocate to Account B, you earn:
+	</p>
+	<p>
+    If you score in the <b style="color:#C81717"> bottom </b> half of your group, you earn:
+	</p>
+	<p>
+    <p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $1 with probability <b style="color:#F55607"> {{prob_A}} </b>
+	</p>
+	<p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $0 with probability <b style="color:#F55607"> {{prob_B}} </b>
+
+	</p>
+	<p>
+		<br>
+		<br>
+	</p>
+	<div>
+    <table class = game>
+    <tr>
+    	<td>
+    		<b>
+				Account A <br>
+				$1 with probability 1
+			</b>
+    	</td>
+    	<td >
+    	<div class="slidecontainer", onclick="update()">
+    		<input type="range", class="slider", name="game2_slider7" id="game2_slider7", step="10", list = "ticks" />
+        <datalist id="ticks">
+            <option>0.0</option>
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            <option>50</option>
+            <option>60</option>
+            <option>70</option>
+            <option>80</option>
+            <option>90</option>
+            <option>100</option>
+        </datalist>
+    	</div>
+		</td>
+		<td>
+		<b>
+    		Account B <br>
+			If <b style="color:#1E8BDC"> top </b> half: <br>
+			$3 with probability {{prob_A}} <br>
+			$1 with probability {{prob_B}} <br>
+			<br>
+			If <b style="color:#C81717"> bottom </b> half: <br>
+			$1 with probability {{prob_A}} <br>
+			$0 with probability {{prob_B}} <br>
+    	</b>
+    	</td>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<p id="allocate"></p>
+			Allocation:   <span id="acc_A_1"></span>% in Account A and <span id="acc_B_1"></span>% in Account B. 
+		</td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	<p>
+		<br>
+		<br>
+	</p>
+	<div>
+		<div>
+			 <br>
+    		For each $1 of you income, if you score in the <b style="color:#1E8BDC"> top </b> half of your group, you will receive: <br \>
+    		 <br>
+    	</div>
+    	<div>
+    		<p>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_2"></span> * $1) + (<span id="acc_B_2"></span> * $3) = <span id="value_G"></span> with probabilty {{prob_A}}
+    		</p>
+    		<p>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_3"></span> * $1) + (<span id="acc_B_3"></span> * $1) =<span id="value_B"></span> with probabilty {{prob_B}}
+    		</p>
+    	</div>
+   	</div>
+	<div>
+		<div>
+			 <br>
+    		For each $1 of you income, if you score in the <b style="color:#C81717"> bottom </b> half of your group, you will receive: <br \>
+    		 <br>
+    	</div>
+    	<div>
+    		<p>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_4"></span> * $1) + (<span id="acc_B_4"></span> * $1) = <span id="value_M"></span> with probabilty {{prob_A}}
+    		</p>
+    		<p>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_5"></span> * $1) + (<span id="acc_B_5"></span> * $0) =<span id="value_N"></span> with probabilty {{prob_B}}
+    		</p>
+    	</div>
+   	</div>
+</div>
+    {% next_button %}
+{{ form.non_field_errors }}
+
+{% endblock %}

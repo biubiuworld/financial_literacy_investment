@@ -35,14 +35,14 @@ var account_B_3 = document.getElementById("acc_B_3");
 var value_G =  document.getElementById("value_G");
 var value_B = document.getElementById("value_B");
 function update() {
-  account_A_1.innerHTML= (document.getElementById("game_slider").value);
-  account_B_1.innerHTML = (100-document.getElementById("game_slider").value);
-  account_A_2.innerHTML= (document.getElementById("game_slider").value)/100;
-  account_B_2.innerHTML = (100-document.getElementById("game_slider").value)/100;
-  account_A_3.innerHTML= (document.getElementById("game_slider").value)/100;
-  account_B_3.innerHTML = (100-document.getElementById("game_slider").value)/100;
-  var A = (document.getElementById("game_slider").value)/100;
-  var B = (100-document.getElementById("game_slider").value)/100;
+  account_A_1.innerHTML= (document.getElementById("game1_slider1").value);
+  account_B_1.innerHTML = (100-document.getElementById("game1_slider1").value);
+  account_A_2.innerHTML= (document.getElementById("game1_slider1").value)/100;
+  account_B_2.innerHTML = (100-document.getElementById("game1_slider1").value)/100;
+  account_A_3.innerHTML= (document.getElementById("game1_slider1").value)/100;
+  account_B_3.innerHTML = (100-document.getElementById("game1_slider1").value)/100;
+  var A = (document.getElementById("game1_slider1").value)/100;
+  var B = (100-document.getElementById("game1_slider1").value)/100;
   value_G.innerHTML = Math.round(((A*1)+(B*3))*100)/100
   value_B.innerHTML = (A*1)+(B*0)
 }
@@ -90,7 +90,7 @@ function update() {
     	<div class="slidecontainer", onclick="update()">
     		<input type="range", class="slider", name="game1_slider1" id="game1_slider1", step="10", list = "ticks" />
         <datalist id="ticks">
-            <option>0</option>
+            <option>0.0</option>
             <option>10</option>
             <option>20</option>
             <option>30</option>
@@ -148,5 +148,6 @@ function update() {
    	</div>
 </div>
     {% next_button %}
+{{ form.non_field_errors }}
 
 {% endblock %}
