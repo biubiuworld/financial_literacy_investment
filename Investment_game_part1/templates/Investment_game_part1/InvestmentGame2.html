@@ -35,15 +35,15 @@ var account_B_3 = document.getElementById("acc_B_3");
 var value_G =  document.getElementById("value_G");
 var value_B = document.getElementById("value_B");
 function update() {
-  account_A_1.innerHTML= (document.getElementById("game_slider").value);
-  account_B_1.innerHTML = (100-document.getElementById("game_slider").value);
-  account_A_2.innerHTML= (document.getElementById("game_slider").value)/100;
-  account_B_2.innerHTML = (100-document.getElementById("game_slider").value)/100;
-  account_A_3.innerHTML= (document.getElementById("game_slider").value)/100;
-  account_B_3.innerHTML = (100-document.getElementById("game_slider").value)/100;
-  var A = (document.getElementById("game_slider").value)/100;
-  var B = (100-document.getElementById("game_slider").value)/100;
-  value_G.innerHTML = (A*1)+(B*3)
+  account_A_1.innerHTML= (document.getElementById("game1_slider2").value);
+  account_B_1.innerHTML = (100-document.getElementById("game1_slider2").value);
+  account_A_2.innerHTML= (document.getElementById("game1_slider2").value)/100;
+  account_B_2.innerHTML = (100-document.getElementById("game1_slider2").value)/100;
+  account_A_3.innerHTML= (document.getElementById("game1_slider2").value)/100;
+  account_B_3.innerHTML = (100-document.getElementById("game1_slider2").value)/100;
+  var A = (document.getElementById("game1_slider2").value)/100;
+  var B = (100-document.getElementById("game1_slider2").value)/100;
+  value_G.innerHTML = Math.round(((A*1)+(B*3))*100)/100
   value_B.innerHTML = (A*1)+(B*0)
 }
 
@@ -57,28 +57,40 @@ function update() {
     Please allocate your money between Account A and Account B <br \>
 	</p>
 	<p>
+    For each $1 that you allocate to Account A, you earn:
+	</p>
+	<p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $1 with probability 1
+	</p>
+	<p>
+    For each $1 that you allocate to Account B, you earn:
+	</p>
+	<p>
+    <p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $3 with probability <b style="color:#F55607"> {{prob_A}} </b>
+	</p>
+	<p>
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; $0 with probability <b style="color:#F55607"> {{prob_B}} </b>
+		
+	</p>
+	<p>
 		<br>
-    For each $1 that you allocate to Account A, you earn: <br \>
-            $1 with probability 1 <br \>
-    For each $1 that you allocate to Account B, you earn: <br \>
-    <br>
-            $3 with probability <b style="color:#F55607"> {{prob_A}} </b> <br \>
-            $0 with probability <b style="color:#F55607"> {{prob_B}} </b> <br \>
-            <br>
-    </p>
+		<br>
+	</p>
 	<div>
     <table class = game>
     <tr>
     	<td>
     		<b>
-    		Account A
-    		</b>
+				Account A <br>
+				$1 with probability 1
+			</b>
     	</td>
     	<td >
     	<div class="slidecontainer", onclick="update()">
-    		<input type="range", class="slider", name="game_slider" id="game_slider", step="10", list = "ticks" />
+    		<input type="range", class="slider", name="game1_slider2" id="game1_slider2", step="10", list = "ticks" />
         <datalist id="ticks">
-            <option>0</option>
+            <option>0.0</option>
             <option>10</option>
             <option>20</option>
             <option>30</option>
@@ -94,7 +106,9 @@ function update() {
 		</td>
 		<td>
 		<b>
-    		Account B
+    		Account B <br>
+			$3 with probability {{prob_A}} <br>
+			$0 with probability {{prob_B}}
     	</b>
     	</td>
 	</tr>
@@ -113,6 +127,10 @@ function update() {
 		</td>
 	</tr>
 	</table>
+	<p>
+		<br>
+		<br>
+	</p>
 	<div>
 		<div>
 			 <br>
@@ -121,14 +139,16 @@ function update() {
     	</div>
     	<div>
     		<p>
-    		(<span id="acc_A_2"></span> * $1) + (<span id="acc_B_2"></span> * $3) = <span id="value_G"></span> with probabilty {{prob_A}}
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_2"></span> * $1) + (<span id="acc_B_2"></span> * $3) = <span id="value_G"></span> with probabilty {{prob_A}}
     		</p>
     		<p>
-    		(<span id="acc_A_3"></span> * $1) + (<span id="acc_B_3"></span> * $0) =<span id="value_B"></span> with probabilty {{prob_B}}
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; (<span id="acc_A_3"></span> * $1) + (<span id="acc_B_3"></span> * $0) =<span id="value_B"></span> with probabilty {{prob_B}}
     		</p>
     	</div>
    	</div>
 </div>
     {% next_button %}
+
+{{ form.non_field_errors }}
 
 {% endblock %}
