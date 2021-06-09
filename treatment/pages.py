@@ -40,13 +40,10 @@ class Treatment2(Page):
 
         # telling the player if he is on the top/bottom 50%
         ranking_over_50 = None
-        if self.participant.vars['ranking'] > 50:
+        if self.participant.vars['ranking'] >= 50:
             ranking_over_50 = "better than 50%"
-        elif self.participant.vars['ranking'] < 50:
-            ranking_over_50 = "lower than 50%"
         else:
-            ranking_over_50 = choice(["better than 50%", "lower than 50%"])
-        
+            ranking_over_50 = "lower than 50%"
         return {
             'num_of_correct_answers': self.participant.vars["num_of_correct_answers_part1"],
             'self_evaluation1': self.participant.vars['self_evaluation1'],

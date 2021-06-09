@@ -8,7 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
-
+from scipy.stats import percentileofscore
 
 author = 'Your name here'
 
@@ -37,8 +37,35 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
-
+    def get_ranking(self):
+        all_scores_1 = [] # stores the scores of all players
+        all_scores_2 = []
+        all_scores_3 = []
+        all_scores_4 = []
+        all_scores_5 = []
+        for p in self.get_players():
+            if p.participant.vars['subgroup'] == 1:
+                all_scores_1.append(p.num_of_correct_answers_part2)# storing the data
+            elif p.participant.vars['subgroup'] == 2:
+                all_scores_2.append(p.num_of_correct_answers_part2)# storing the data
+            elif p.participant.vars['subgroup'] == 3:
+                all_scores_3.append(p.num_of_correct_answers_part2)# storing the data
+            elif p.participant.vars['subgroup'] == 4:
+                all_scores_4.append(p.num_of_correct_answers_part2)# storing the data
+            else:
+                all_scores_5.append(p.num_of_correct_answers_part2)  # storing the data
+        # calculating the ranking of each subgroup
+        for p in self.get_players():
+            if p.participant.vars['subgroup'] == 1:
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_1, p.num_of_correct_answers_part2, "rank")
+            elif p.participant.vars['subgroup'] == 2:
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_2, p.num_of_correct_answers_part2, "rank")
+            elif p.participant.vars['subgroup'] == 3:
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_3, p.num_of_correct_answers_part2, "rank")
+            elif p.participant.vars['subgroup'] == 4:
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_4, p.num_of_correct_answers_part2, "rank")
+            else:
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_5, p.num_of_correct_answers_part2, "rank")
 
 class Player(BasePlayer):
     num_of_correct_answers_part2 = models.IntegerField(initial=0)
