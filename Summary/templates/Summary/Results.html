@@ -2,11 +2,213 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Summary
 {% endblock %}
 
 {% block content %}
+<h5>   <b style="color:#F55607"> First Skill Tasks Results: </b> </h5>
+<table class="table table-striped table-hover">
+    <thead>
+    <th>Actual correct answers</th>
+    <th>Guess correct answers</th>
+    <th>Actual ranking among all subjects (better than)</th>
+    <th>Guess ranking among all subjects (better than)</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{num_of_correct_answers_part1}}</td>
+        <td>{{self_evaluation1}}</td>
+        <td>{{ranking}}%</td>
+        <td>{{self_evaluation2}}%</td>
+    </tr>
+    </tbody>
+</table>
 
+<h5>   <b style="color:#F55607"> Second Skill Tasks Results: </b> </h5>
+<table class="table table-striped table-hover">
+    <thead>
+    <th>Actual correct answers</th>
+    <th>Actual ranking among all subjects (better than)</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{num_of_correct_answers_part2}}</td>
+        <td>{{ranking_subgroup}}%</td>
+    </tr>
+    </tbody>
+</table>
+
+<h5>   <b style="color:#F55607"> First Investment Game Results: </b> </h5>
+<table class="table table-striped table-hover">
+    <thead>
+    <th>p</th>
+    <th>Endowment</th>
+    <th>Account A</th>
+    <th>Account B</th>
+    <th>Actual vaule of B</th>
+    <th>Payoff</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>0.1</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p10}}%</td>
+        <td>{{game1_accountB_p10}}%</td>
+        <td>{{value_of_B_0p1_game1}}</td>
+        <td>{{payoff_game1_p10}}</td>
+    </tr>
+        <tr>
+        <td>0.2</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p20}}%</td>
+        <td>{{game1_accountB_p20}}%</td>
+        <td>{{value_of_B_0p2_game1}}</td>
+        <td>{{payoff_game1_p20}}</td>
+    </tr>
+        <tr>
+        <td>0.3</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p30}}%</td>
+        <td>{{game1_accountB_p30}}%</td>
+        <td>{{value_of_B_0p3_game1}}</td>
+        <td>{{payoff_game1_p30}}</td>
+    </tr>
+        <tr>
+        <td>0.4</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p40}}%</td>
+        <td>{{game1_accountB_p40}}%</td>
+        <td>{{value_of_B_0p4_game1}}</td>
+        <td>{{payoff_game1_p40}}</td>
+    </tr>
+        <tr>
+        <td>0.5</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p50}}%</td>
+        <td>{{game1_accountB_p50}}%</td>
+        <td>{{value_of_B_0p5_game1}}</td>
+        <td>{{payoff_game1_p50}}</td>
+    </tr>
+        <tr>
+        <td>0.6</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p60}}%</td>
+        <td>{{game1_accountB_p60}}%</td>
+        <td>{{value_of_B_0p6_game1}}</td>
+        <td>{{payoff_game1_p60}}</td>
+    </tr>
+        <tr>
+        <td>0.7</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p70}}%</td>
+        <td>{{game1_accountB_p70}}%</td>
+        <td>{{value_of_B_0p7_game1}}</td>
+        <td>{{payoff_game1_p70}}</td>
+    </tr>
+        <tr>
+        <td>0.8</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p80}}%</td>
+        <td>{{game1_accountB_p80}}%</td>
+        <td>{{value_of_B_0p8_game1}}</td>
+        <td>{{payoff_game1_p80}}</td>
+    </tr>
+        <tr>
+        <td>0.9</td>
+        <td>{{endowment_game1}}</td>
+        <td>{{game1_accountA_p90}}%</td>
+        <td>{{game1_accountB_p90}}%</td>
+        <td>{{value_of_B_0p9_game1}}</td>
+        <td>{{payoff_game1_p90}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h5>   <b style="color:#F55607"> Second Investment Game Results: </b> </h5>
+<table class="table table-striped table-hover">
+    <thead>
+    <th>p</th>
+    <th>Effort Endowment</th>
+    <th>Account A</th>
+    <th>Account B</th>
+    <th>Actual vaule of B</th>
+    <th>Payoff</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>0.1</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p10}}%</td>
+        <td>{{game2_accountB_p10}}%</td>
+        <td>{{value_of_B_0p1_game2}}</td>
+        <td>{{payoff_game2_p10}}</td>
+    </tr>
+        <tr>
+        <td>0.2</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p20}}%</td>
+        <td>{{game2_accountB_p20}}%</td>
+        <td>{{value_of_B_0p2_game2}}</td>
+        <td>{{payoff_game2_p20}}</td>
+    </tr>
+        <tr>
+        <td>0.3</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p30}}%</td>
+        <td>{{game2_accountB_p30}}%</td>
+        <td>{{value_of_B_0p3_game2}}</td>
+        <td>{{payoff_game2_p30}}</td>
+    </tr>
+        <tr>
+        <td>0.4</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p40}}%</td>
+        <td>{{game2_accountB_p40}}%</td>
+        <td>{{value_of_B_0p4_game2}}</td>
+        <td>{{payoff_game2_p40}}</td>
+    </tr>
+        <tr>
+        <td>0.5</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p50}}%</td>
+        <td>{{game2_accountB_p50}}%</td>
+        <td>{{value_of_B_0p5_game2}}</td>
+        <td>{{payoff_game2_p50}}</td>
+    </tr>
+        <tr>
+        <td>0.6</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p60}}%</td>
+        <td>{{game2_accountB_p60}}%</td>
+        <td>{{value_of_B_0p6_game2}}</td>
+        <td>{{payoff_game2_p60}}</td>
+    </tr>
+        <tr>
+        <td>0.7</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p70}}%</td>
+        <td>{{game2_accountB_p70}}%</td>
+        <td>{{value_of_B_0p7_game2}}</td>
+        <td>{{payoff_game2_p70}}</td>
+    </tr>
+        <tr>
+        <td>0.8</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p80}}%</td>
+        <td>{{game2_accountB_p80}}%</td>
+        <td>{{value_of_B_0p8_game2}}</td>
+        <td>{{payoff_game2_p80}}</td>
+    </tr>
+        <tr>
+        <td>0.9</td>
+        <td>{{endowment_game2}}</td>
+        <td>{{game2_accountA_p90}}%</td>
+        <td>{{game2_accountB_p90}}%</td>
+        <td>{{value_of_B_0p9_game2}}</td>
+        <td>{{payoff_game2_p90}}</td>
+    </tr>
+    </tbody>
+</table>
     {% next_button %}
 {% endblock %}
 
