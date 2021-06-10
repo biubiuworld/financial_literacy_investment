@@ -53,6 +53,10 @@ class SkillTasksWaitPage(WaitPage):
 class SelfEvaluation(Page):
     form_model = 'player'
     form_fields = ['self_evaluation1', 'self_evaluation2']
+    def vars_for_template(self):
+        return{
+            "num_demo_participants": self.session.config["num_demo_participants"],
+        }
     def before_next_page(self):
         self.participant.vars['self_evaluation1'] = self.player.self_evaluation1
         self.participant.vars['self_evaluation2'] = self.player.self_evaluation2

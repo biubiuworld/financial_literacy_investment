@@ -1,17 +1,18 @@
 from os import environ
 
 SESSION_CONFIGS = [
-    dict(
-       name='pre_survey',
-       display_name="Pre Survey",
-       num_demo_participants=1,
-       app_sequence=['pre_survey']
-    ),
+    # dict(
+    #    name='pre_survey',
+    #    display_name="Pre Survey",
+    #    num_demo_participants=1,
+    #    app_sequence=['pre_survey']
+    # ),
     dict(
         name='skill_task_part1',
-        display_name="Skill tasks part 1 + treatment",
+        display_name="Financial Literacy Investment Game",
         num_demo_participants=1,
-        app_sequence=['skill_task_part1','Investment_game_part1','treatment','Investment_game_part2','skill_task_part2','Summary']
+        app_sequence=['pre_survey','skill_task_part1','Investment_game_part1',
+                      'treatment','Investment_game_part2','skill_task_part2','Summary', 'demographics_survey']
     ),
     # dict(
     #     name='Investment_game_part1',
@@ -31,18 +32,18 @@ SESSION_CONFIGS = [
     #     num_demo_participants=1,
     #     app_sequence=['skill_task_part2']
     # ),
-    dict(
-       name='demographics_survey',
-       display_name="Demographics Survey",
-       num_demo_participants=3,
-       app_sequence=['demographics_survey']
-    ),
-    dict(
-       name='skill_task',
-       display_name="skill_task",
-       num_demo_participants=1,
-       app_sequence=['skill_task']
-    ),
+    # dict(
+    #    name='demographics_survey',
+    #    display_name="Demographics Survey",
+    #    num_demo_participants=3,
+    #    app_sequence=['demographics_survey']
+    # ),
+    # dict(
+    #    name='skill_task',
+    #    display_name="skill_task",
+    #    num_demo_participants=1,
+    #    app_sequence=['skill_task']
+    # ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

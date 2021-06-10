@@ -158,7 +158,7 @@ class Group(BaseGroup):
                                                             p.participant.vars['payoff_game1_p80'],
                                                             p.participant.vars['payoff_game1_p90']
                                                             ])[0]
-            p.participant.vars['payoff4'] = 1 - 0.2*abs(p.participant.vars["num_of_correct_answers_part1"]-p.participant.vars['self_evaluation1'])
+            p.participant.vars['payoff4'] = round(1 - 0.2*abs(p.participant.vars["num_of_correct_answers_part1"]-p.participant.vars['self_evaluation1']), 2)
             p.participant.vars['payoff5'] = p.participant.vars["num_of_correct_answers_part2"]
             p.participant.vars['payoff6'] = random.choices([p.participant.vars['payoff_game2_p10'],
                                                             p.participant.vars['payoff_game2_p20'],

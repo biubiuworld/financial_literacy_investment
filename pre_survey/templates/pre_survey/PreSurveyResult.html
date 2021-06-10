@@ -7,10 +7,10 @@
 
 {% block content %}
     <p>
-        Of the 20 participants of this study, {{male_count}} are male, {{female_count}} are female, {{other_count}} identify as other and {{dna_count}} prefer not to say.
+        Of all {{num_demo_participants}} participants of this study, {{male_count}} are male, {{female_count}} are female, {{other_count}} identify as other and {{dna_count}} prefer not to say.
     </p>
     <p>
-        The median age of the 20 participants is {{ age_median }}
+        The median age of all {{num_demo_participants}} participants is {{ age_median }}
     </p>
     {% next_button %}
 

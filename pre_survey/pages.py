@@ -33,7 +33,8 @@ class PreSurveyResult(Page):
             'female_count': self.player.female_count,
             'other_count': self.player.other_count,
             'dna_count': self.player.dna_count,
-            'age_median': median(ages)
+            'age_median': median(ages),
+            "num_demo_participants":self.session.config["num_demo_participants"],
         }
 
 
