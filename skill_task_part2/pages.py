@@ -46,9 +46,7 @@ class SecondSkillQuestionPage5(Page):
 class SkillTasksWaitPage(WaitPage):
     after_all_players_arrive = "get_ranking"
 
-class Results(Page):
-    pass
 
 
 page_sequence = [AssessmentInstruction, SecondSkillQuestionPage1, SecondSkillQuestionPage2, SecondSkillQuestionPage3,
-                 SecondSkillQuestionPage4, SecondSkillQuestionPage5, SkillTasksWaitPage, Results]
+                 SecondSkillQuestionPage4, SecondSkillQuestionPage5, SkillTasksWaitPage]
