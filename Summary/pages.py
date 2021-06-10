@@ -138,7 +138,13 @@ class Results(Page):
             'payoff_game2_p70': self.participant.vars['payoff_game2_p70'],
             'payoff_game2_p80': self.participant.vars['payoff_game2_p80'],
             'payoff_game2_p90': self.participant.vars['payoff_game2_p90'],
-
+            'payoff1': self.participant.vars['payoff1'],
+            'payoff2': self.participant.vars['payoff2'],
+            'payoff3': self.participant.vars['payoff3'],
+            'payoff4': self.participant.vars['payoff4'],
+            'payoff5': self.participant.vars['payoff5'],
+            'payoff6': self.participant.vars['payoff6'],
+            'total_payoff': self.participant.vars['total_payoff'],
         }
 
 

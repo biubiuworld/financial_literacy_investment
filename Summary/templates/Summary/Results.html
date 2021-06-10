@@ -10,9 +10,9 @@
 <table class="table table-striped table-hover">
     <thead>
     <th>Actual correct answers</th>
-    <th>Guess correct answers</th>
-    <th>Actual ranking among all subjects (better than)</th>
-    <th>Guessed ranking among all subjects (better than)</th>
+    <th>Guessed correct answers</th>
+    <th>Actual ranking among all subjects (strictly better than)</th>
+    <th>Guessed ranking among all subjects (strictly better than)</th>
     </thead>
     <tbody>
     <tr>
@@ -28,7 +28,7 @@
 <table class="table table-striped table-hover">
     <thead>
     <th>Actual correct answers</th>
-    <th>Actual ranking among all subjects (better than)</th>
+    <th>Actual ranking among all subjects (strictly better than)</th>
     </thead>
     <tbody>
     <tr>
@@ -208,6 +208,39 @@
         <td>{{payoff_game2_p90}}</td>
     </tr>
     </tbody>
+</table>
+
+</br>
+<h5> <b style="color:#1E8BDC"> Your total payoff is as follows: </b> </h5>
+<table class="table">
+    <tr>
+        <td>Participation fee</td>
+        <td>${{payoff1}}</td>
+    </tr>
+    <tr>
+        <td>Skill Task I</td>
+        <td>${{payoff2}}</td>
+    </tr>
+    <tr>
+        <td>Self Evaluation</td>
+        <td>${{payoff4}}</td>
+    </tr>
+    <tr>
+        <td>Investment Game I (randomly one round was selected)</td>
+        <td>${{payoff3}}</td>
+    </tr>
+    <tr>
+        <td>Investment Game II (randomly one round was selected)</td>
+        <td>${{payoff6}}</td>
+    </tr>
+    <tr>
+        <td>Skill Task II</td>
+        <td>${{payoff5}}</td>
+    </tr>
+    <tr>
+        <th>Total Payoff</th>
+        <th><b>${{total_payoff}}</b></th>
+    </tr>
 </table>
     {% next_button %}
 {% endblock %}

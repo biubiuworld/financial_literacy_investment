@@ -22,6 +22,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     endowment_game1 = 3
+    payoff1 = 5
     value_of_B_0p1_game1 = random.choices([3,0], weights = [1, 9])[0]
     value_of_B_0p2_game1 = random.choices([3,0], weights = [2, 8])[0]
     value_of_B_0p3_game1 = random.choices([3,0], weights = [3, 7])[0]
@@ -144,6 +145,32 @@ class Group(BaseGroup):
                             100 - p.participant.vars['game2_slider9']) * 0.01 * p.participant.vars[
                             'value_of_B_0p9_game2']), 2)
 
+        for p in self.get_players():
+            p.participant.vars['payoff1'] = Constants.payoff1
+            p.participant.vars['payoff2'] = p.participant.vars["num_of_correct_answers_part1"]
+            p.participant.vars['payoff3'] = random.choices([p.participant.vars['payoff_game1_p10'],
+                                                            p.participant.vars['payoff_game1_p20'],
+                                                            p.participant.vars['payoff_game1_p30'],
+                                                            p.participant.vars['payoff_game1_p40'],
+                                                            p.participant.vars['payoff_game1_p50'],
+                                                            p.participant.vars['payoff_game1_p60'],
+                                                            p.participant.vars['payoff_game1_p70'],
+                                                            p.participant.vars['payoff_game1_p80'],
+                                                            p.participant.vars['payoff_game1_p90']
+                                                            ])[0]
+            p.participant.vars['payoff4'] = 1 - 0.2*abs(p.participant.vars["num_of_correct_answers_part1"]-p.participant.vars['self_evaluation1'])
+            p.participant.vars['payoff5'] = p.participant.vars["num_of_correct_answers_part2"]
+            p.participant.vars['payoff6'] = random.choices([p.participant.vars['payoff_game2_p10'],
+                                                            p.participant.vars['payoff_game2_p20'],
+                                                            p.participant.vars['payoff_game2_p30'],
+                                                            p.participant.vars['payoff_game2_p40'],
+                                                            p.participant.vars['payoff_game2_p50'],
+                                                            p.participant.vars['payoff_game2_p60'],
+                                                            p.participant.vars['payoff_game2_p70'],
+                                                            p.participant.vars['payoff_game2_p80'],
+                                                            p.participant.vars['payoff_game2_p90']
+                                                            ])[0]
+            p.participant.vars['total_payoff'] = p.participant.vars['payoff1'] + p.participant.vars['payoff2'] + p.participant.vars['payoff3'] + p.participant.vars['payoff4'] + p.participant.vars['payoff5'] + p.participant.vars['payoff6']
 
 class Player(BasePlayer):
     pass
