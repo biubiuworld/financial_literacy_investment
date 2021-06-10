@@ -30,11 +30,19 @@ class Subsession(BaseSubsession):
         player_ids = [p for p in range(1, self.session.config["num_demo_participants"] + 1)]
         random.shuffle(player_ids) # randomizing ids
 
-        # assigning treatments randomly
+        # # assigning treatments randomly
+        # for p in self.get_players():
+        #     if player_ids.index(p.id_in_group) <= 3:
+        #         p.treatment_group = 0
+        #     elif player_ids.index(p.id_in_group) <= 7:
+        #         p.treatment_group = 1
+        #     else:
+        #         p.treatment_group = 2
+        # assigning treatments randomly with 4 persons
         for p in self.get_players():
-            if player_ids.index(p.id_in_group) <= 3:
+            if player_ids.index(p.id_in_group) <= 1:
                 p.treatment_group = 0
-            elif player_ids.index(p.id_in_group) <= 7:
+            elif player_ids.index(p.id_in_group) <= 2:
                 p.treatment_group = 1
             else:
                 p.treatment_group = 2

@@ -10,7 +10,7 @@ SESSION_CONFIGS = [
     dict(
         name='skill_task_part1',
         display_name="Financial Literacy Investment Game",
-        num_demo_participants=1,
+        num_demo_participants=4,
         app_sequence=['pre_survey','skill_task_part1','Investment_game_part1',
                       'treatment','Investment_game_part2','skill_task_part2','Summary', 'demographics_survey']
     ),
