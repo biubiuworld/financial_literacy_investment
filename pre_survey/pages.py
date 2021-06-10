@@ -6,6 +6,9 @@ from statistics import median
 class Introduction(Page):
     pass
 
+class Compensation(Page):
+    pass
+
 class Presurvey(Page):
     form_model = 'player'
     form_fields = ['age', 'gender']
@@ -34,4 +37,4 @@ class PreSurveyResult(Page):
         }
 
 
-page_sequence = [Introduction, Presurvey, PreSurveyWaitPage, PreSurveyResult]
+page_sequence = [Introduction, Compensation, Presurvey, PreSurveyWaitPage, PreSurveyResult]

@@ -60,7 +60,7 @@ class Group(BaseGroup):
     def get_payoff(self):
         # second investment game payoff
         for p in self.get_players():
-            p.participant.vars['endowment_game1'] = Constants.endowment_game1
+            p.participant.vars['endowment_game1'] = p.participant.vars["num_of_correct_answers_part1"]
             p.participant.vars['value_of_B_0p1_game1'] = Constants.value_of_B_0p1_game1
             p.participant.vars['value_of_B_0p2_game1'] = Constants.value_of_B_0p2_game1
             p.participant.vars['value_of_B_0p3_game1'] = Constants.value_of_B_0p3_game1

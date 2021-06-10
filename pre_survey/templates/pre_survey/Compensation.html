@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Compensation Description
+{% endblock %}
+
+{% block content %}
+    <p>
+        The compensation for this experiment is: </br>
+    </p>
+    <p>
+        &emsp; &emsp; 1. You will be paid a $5 participation fee.
+    </p>
+    <p>
+        &emsp; &emsp; 2. For the first round of the financial literacy test, you will be paid $1 per correct answer.
+    </p>
+    <p>
+        &emsp; &emsp; 3. For the self evaluation tasks, the payoff depends on your actual number of correct answers and guess number of correct answers.
+        The formula is: payoff = $1 - $0.2*｜actual number of correct answers - guess correct number of correct answers|.
+
+    </p>
+    <p>
+        &emsp; &emsp; 4. For the investment game 1, one allocation decision will be randomly chosen as the payoff.
+    </p>
+    <p>
+        &emsp; &emsp; 5. For the investment game 2, one allocation decision will be randomly chosen as the payoff.
+    </p>
+    <p>
+        &emsp; &emsp; 5. For the second round of the financial literacy test, you will also be paid $1 per correct answer.
+    </p>
+    <p>
+       The total of your experiment earnings and $5.00 participation fee will be given to you through Venmo at the end of the session.
+    </p>
+    {% next_button %}
+
+{% endblock %}
