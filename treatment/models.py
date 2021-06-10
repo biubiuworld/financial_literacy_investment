@@ -32,9 +32,9 @@ class Subsession(BaseSubsession):
 
         # assigning treatments randomly
         for p in self.get_players():
-            if player_ids.index(p.id_in_group) <= 7:
+            if player_ids.index(p.id_in_group) <= 3:
                 p.treatment_group = 0
-            elif player_ids.index(p.id_in_group) <= 13:
+            elif player_ids.index(p.id_in_group) <= 7:
                 p.treatment_group = 1
             else:
                 p.treatment_group = 2

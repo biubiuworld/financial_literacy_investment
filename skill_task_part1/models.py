@@ -45,10 +45,11 @@ class Group(BaseGroup):
         all_scores = [] # stores the scores of all players
         for p in self.get_players():
             all_scores.append(p.num_of_correct_answers_part1) # storing the data
-
+            print(f'skill test 1 score list is {all_scores}')
         # calculating the ranking of each player        
         for p in self.get_players():
-            p.participant.vars["ranking"] = percentileofscore(all_scores, p.num_of_correct_answers_part1, "rank")
+            p.participant.vars["ranking"] = percentileofscore(all_scores, p.num_of_correct_answers_part1, "strict")
+            print(f'skill test 1 ranking is {p.participant.vars["ranking"]}')
 
 
 class Player(BasePlayer):

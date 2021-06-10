@@ -9,6 +9,7 @@ from otree.api import (
     currency_range,
 )
 from scipy.stats import percentileofscore
+import random
 
 author = 'Your name here'
 
@@ -54,18 +55,21 @@ class Group(BaseGroup):
                 all_scores_4.append(p.num_of_correct_answers_part2)# storing the data
             else:
                 all_scores_5.append(p.num_of_correct_answers_part2)  # storing the data
+            print(f'skill test 2 score list is {all_scores_1}, {all_scores_2}, {all_scores_3}, {all_scores_4}, {all_scores_5}')
+
         # calculating the ranking of each subgroup
         for p in self.get_players():
             if p.participant.vars['subgroup'] == 1:
-                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_1, p.num_of_correct_answers_part2, "rank")
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_1, p.num_of_correct_answers_part2, "strict")
             elif p.participant.vars['subgroup'] == 2:
-                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_2, p.num_of_correct_answers_part2, "rank")
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_2, p.num_of_correct_answers_part2, "strict")
             elif p.participant.vars['subgroup'] == 3:
-                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_3, p.num_of_correct_answers_part2, "rank")
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_3, p.num_of_correct_answers_part2, "strict")
             elif p.participant.vars['subgroup'] == 4:
-                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_4, p.num_of_correct_answers_part2, "rank")
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_4, p.num_of_correct_answers_part2, "strict")
             else:
-                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_5, p.num_of_correct_answers_part2, "rank")
+                p.participant.vars["ranking_subgroup"] = percentileofscore(all_scores_5, p.num_of_correct_answers_part2, "strict")
+            print(f'skill test 2 ranking is {p.participant.vars["ranking_subgroup"]}')
 
 class Player(BasePlayer):
     num_of_correct_answers_part2 = models.IntegerField(initial=0)
