@@ -31,7 +31,7 @@ class Constants(BaseConstants):
         [6, '6'],
         [7, '7']
     ]
-    correct_answer = [1, 1, 1, 1, 1]
+    correct_answer = [2, 3, 2, 1, 3]
 
 class Subsession(BaseSubsession):
     pass
